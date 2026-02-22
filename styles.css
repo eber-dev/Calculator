@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.padre{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    height: 470px;
+    width: 370px;
+    padding: 20px;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.display{
+    border: 1px solid blue;
+    flex: 1;
+}
+
+.teclas{
+    border: 1px solid green;
+    flex: 5;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    gap: 10px;
+}
+
+button{
+    flex-basis: calc((100% - 30px)/4); 
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
