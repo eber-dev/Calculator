@@ -58,8 +58,9 @@ botones.forEach((p)=>{
         let valor = e.target.value;
         let numerico =["1","2","3","4","5","6","7","8","9","0"].includes(valor) 
         let operadores = ["+","-","*","/","%"].includes(valor)
+        let decimal = valor==="."
+        let masmenos = valor==="signo"
         let igualdad = valor==="="
-        let extras = [".","signo"].includes(valor)
 
         if(numerico){
             if(operator===null && num2 === ""){
@@ -70,15 +71,32 @@ botones.forEach((p)=>{
         }
         
         if(operadores){
-            if(num1===null){
+            if(num1===""){
                 console.log("Debe ingresar un numero primero")
                 return
+            }else if(num1 === "0."){
+                console.log("Formato Invalido")
             }else{
                 operator = valor
             }
         }
 
+        if(decimal){
+
+        }
+
+        if(masmenos){
+
+        }
+
         if(igualdad){
+            if(num1==="" || operator===null || num2===""){
+                console.log("Formato invalido")
+            }else if(num1 != "" && num2 != "" && operator !=null){
+
+            }else if(resultado!=null && num2 != "" && operator != null){
+
+            }
             
         }
 
