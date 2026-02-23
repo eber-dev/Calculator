@@ -74,7 +74,7 @@ botones.forEach((p) => {
             if (num1 === "") {
                 console.log("Debe ingresar un numero primero")
                 return
-            } else if (num1 === "0.") {
+            } else if (num1 === "0." || num1 === "-") {
                 console.log("Formato Invalido")
             } else {
                 operator = valor
@@ -103,7 +103,35 @@ botones.forEach((p) => {
         }
 
         if (masmenos) {
-
+            if(operator === null){
+                if(num1 === ""){
+                    if(num1.includes("-")){
+                        num1 = ""
+                    }else{
+                        num1 = "-"
+                    }
+                }else{
+                    if(num1.includes("-")){
+                        num1 = ""
+                    }else{
+                        num1 = "-"
+                    }
+                }
+            }else{
+                if(num2 === ""){
+                    if(num2.includes("-")){
+                        num2 = ""
+                    }else{
+                        num2 = "-"
+                    }
+                }else{
+                    if(num2.includes("-")){
+                        num2 = ""
+                    }else{
+                        num2 = "-"
+                    }
+                }
+            }
         }
 
         if (igualdad) {
