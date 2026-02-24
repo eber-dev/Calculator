@@ -23,6 +23,7 @@ function porcent(a) {
 }
 
 let num1 = "", num2 = "", operator = null, resultado = null;
+let primero,segundo
 
 function operate(num1, operator, num2) {
     let resultado
@@ -140,8 +141,18 @@ botones.forEach((p) => {
             if(num2 === "0." || num2 === "" || operator == null || num2 == "-"){
                 return
             }else{
-                let primero = parseInt(num1,10)
-                let segundo = parseInt(num2,10)
+                if(num1.includes(".")){
+                    primero = parseFloat(num1)
+                }else{
+                    primero = parseInt(num1,10)
+                }
+
+                if(num2.includes(".")){
+                    segundo = parseFloat(num2)
+                }else{
+                    segundo = parseInt(num2,10)
+                }
+
                 resultado = operate(primero,operator,segundo)
             }
         }
