@@ -22,7 +22,7 @@ function porcent(a) {
     return a * 0.01
 }
 
-let num1 = "", num2 = "", operator = null, respuesta = null;
+let num1 = "", num2 = "", operator = null, resultado = null;
 
 function operate(num1, operator, num2) {
     let resultado
@@ -61,6 +61,8 @@ botones.forEach((p) => {
         let decimal = valor === "."
         let masmenos = valor === "signo"
         let igualdad = valor === "="
+        let borradototal = valor === "borrar"
+        let retroceso = valor === "retroceder"
 
         if (numerico) {
             if (operator === null && num2 === "") {
@@ -135,19 +137,19 @@ botones.forEach((p) => {
         }
 
         if (igualdad) {
-            if (num1 === "" || operator === null || num2 === "") {
-                console.log("Formato invalido")
-            } else if (num1 != "" && num2 != "" && operator != null) {
-
-            } else if (resultado != null && num2 != "" && operator != null) {
-
+            if(num2 === "0." || num2 === "" || operator == null || num2 == "-"){
+                return
+            }else{
+                let primero = parseInt(num1,10)
+                let segundo = parseInt(num2,10)
+                resultado = operate(primero,operator,segundo)
             }
-
         }
 
         console.log("a: ", num1)
         console.log("operator", operator)
         console.log("b: ", num2)
+        console.log("resultado: ",resultado)
 
     })
 })
