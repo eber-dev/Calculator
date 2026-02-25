@@ -113,29 +113,29 @@ botones.forEach((p) => {
             if(operator === null){
                 if(num1 === ""){
                     if(num1.includes("-")){
-                        num1 = ""
+                        display.textContent = (num1 = "")
                     }else{
-                        num1 = "-"
+                        display.textContent = (num1 = "-")
                     }
                 }else{
                     if(num1.includes("-")){
-                        num1 = num1.slice(1) //devuelve desde el indice 1 en adelante el 0 lo borra
+                        display.textContent = (num1 = num1.slice(1)) //devuelve desde el indice 1 en adelante el 0 lo borra
                     }else{
-                        num1 = (num1+" -").split(" ").reverse().join("")
+                        display.textContent = (num1 = (num1+" -").split(" ").reverse().join(""))
                     }
                 }
             }else{
                 if(num2 === ""){
                     if(num2.includes("-")){
-                        num2 = ""
+                        display.textContent = (num2 = "")
                     }else{
-                        num2 = "-"
+                        display.textContent = (num2 = "-")
                     }
                 }else{
                     if(num2.includes("-")){
-                        num2 = num2.slice(1)
+                        display.textContent = (num2 = num2.slice(1))
                     }else{
-                        num2 = (num2+" -").split(" ").reverse().join("")
+                        display.textContent = (num2 = (num2+" -").split(" ").reverse().join(""))
                     }
                 }
             }
@@ -158,6 +158,7 @@ botones.forEach((p) => {
                 }
 
                 resultado = operate(primero,operator,segundo)
+                display.textContent = resultado
             }
         }
 
