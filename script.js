@@ -71,9 +71,9 @@ botones.forEach((p) => {
 
         if (numerico) {
             if (operator === null && num2 === "") {
-                num1 += valor
+                display.textContent = (num1 += valor)
             } else if (operator !== null && num1 !== "") {
-                num2 += valor
+                display.textContent= (num2 += valor)
             }
         }
 
@@ -91,19 +91,19 @@ botones.forEach((p) => {
         if (decimal) {
             if(operator===null){
                 if(num1===""){
-                    num1 = "0."
+                    display.textContent = (num1 = "0.")
                 }else if(num1.includes(".")){
                     return
                 }else{
-                    num1+=valor
+                    display.textContent = (num1+=valor)
                 }
             }else{
                 if(num2===""){
-                    num2="0."
+                    display.textContent = (num2="0.")
                 }else if(num2.includes(".")){
                     return
                 }else{
-                    num2+=valor
+                    display.textContent = (num2+=valor)
                 }
             }
 
@@ -119,9 +119,9 @@ botones.forEach((p) => {
                     }
                 }else{
                     if(num1.includes("-")){
-                        num1 = ""
+                        num1 = num1.slice(1) //devuelve desde el indice 1 en adelante el 0 lo borra
                     }else{
-                        num1 = "-"
+                        num1 = (num1+" -").split(" ").reverse().join("")
                     }
                 }
             }else{
@@ -133,9 +133,9 @@ botones.forEach((p) => {
                     }
                 }else{
                     if(num2.includes("-")){
-                        num2 = ""
+                        num2 = num2.slice(1)
                     }else{
-                        num2 = "-"
+                        num2 = (num2+" -").split(" ").reverse().join("")
                     }
                 }
             }
