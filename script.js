@@ -18,8 +18,8 @@ function divide(a, b) {
     }
 }
 
-function porcent(a) {
-    return a * 0.01
+function porcent(a,b) {
+    return a * 0.01*b
 }
 
 let num1 = "", num2 = "", operator = null, resultado = null;
@@ -42,7 +42,7 @@ function operate(num1, operator, num2) {
             resultado = divide(num1, num2)
             break;
         case "%":
-            resultado = porcent(num1)
+            resultado = porcent(num1,num2)
             break;
         default:
             console.log("Operador invalido")
@@ -83,6 +83,9 @@ botones.forEach((p) => {
                 return
             } else if (num1 === "0." || num1 === "-") {
                 console.log("Formato Invalido")
+            } else if (num1 != "" && valor === "%"){
+                num2 = "1"
+                operator = valor
             } else {
                 operator = valor
             }
