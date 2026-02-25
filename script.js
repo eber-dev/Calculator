@@ -24,7 +24,6 @@ function porcent(a,b) {
 
 let num1 = "", num2 = "", operator = null, resultado = null;
 let primero,segundo
-let mostrar = 0
 
 function operate(num1, operator, num2) {
     let resultado
@@ -55,7 +54,6 @@ const display = document.querySelector(".display")
 const teclado = document.querySelector(".teclas")
 const botones = document.querySelectorAll("button")
 
-display.textContent = mostrar
 
 
 botones.forEach((p) => {
@@ -162,6 +160,8 @@ botones.forEach((p) => {
 
                 resultado = operate(primero,operator,segundo)
                 display.textContent = resultado
+                num1=resultado.toString()
+                num2 = ""
             }
         }
 
