@@ -9,7 +9,7 @@ body{
     justify-content: center;
     margin: 0;
     padding: 0;
-    background-color:rgb(250, 216, 175)
+    background-color:rgb(238, 184, 117)
 }
 
 .padre{
@@ -22,6 +22,7 @@ body{
     gap: 20px;
     overflow: hidden;
     background-color: #5c7594;
+    border-radius: 15px;
 }
 
 .display{
@@ -31,7 +32,7 @@ body{
     justify-content: end;
     align-items: center;
     padding-inline: 10px;
-    font-size: 28px;
+    font-size: 30px;
     overflow: hidden;
     background-color: #d2ecf6;
     border-radius: 15px;
@@ -50,7 +51,7 @@ button{
     flex-basis: calc((100% - 30px)/4); 
     flex-grow: 0;
     flex-shrink: 0;
-    font-size: 18px;
+    font-size: 20px;
     border-radius: 15px;
 }
 
