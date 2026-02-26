@@ -165,6 +165,14 @@ botones.forEach((p) => {
             }
         }
 
+        if(borradototal){
+            display.textContent = ""
+            num1 = ""
+            num2 = ""
+            operator = null
+            resultado = null
+        }
+
         console.log("a: ", num1)
         console.log("operator", operator)
         console.log("b: ", num2)
