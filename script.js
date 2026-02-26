@@ -18,12 +18,12 @@ function divide(a, b) {
     }
 }
 
-function porcent(a,b) {
-    return a * 0.01*b
+function porcent(a, b) {
+    return a * 0.01 * b
 }
 
 let num1 = "", num2 = "", operator = null, resultado = null;
-let primero,segundo
+let primero, segundo
 
 function operate(num1, operator, num2) {
     let resultado
@@ -41,7 +41,7 @@ function operate(num1, operator, num2) {
             resultado = divide(num1, num2)
             break;
         case "%":
-            resultado = porcent(num1,num2)
+            resultado = porcent(num1, num2)
             break;
         default:
             console.log("Operador invalido")
@@ -71,7 +71,7 @@ botones.forEach((p) => {
             if (operator === null && num2 === "") {
                 display.textContent = (num1 += valor)
             } else if (operator !== null && num1 !== "") {
-                display.textContent= (num2 += valor)
+                display.textContent = (num2 += valor)
             }
         }
 
@@ -81,91 +81,109 @@ botones.forEach((p) => {
                 return
             } else if (num1 === "0." || num1 === "-") {
                 console.log("Formato Invalido")
-            } else if (num1 != "" && valor === "%"){
+            } else if (num1 != "" && valor === "%") {
                 num2 = "1"
                 operator = valor
+            } else if (num1 != "" && operator != null && num2) {
+                if (num1.includes(".")) {
+                    primero = parseFloat(num1)
+                } else {
+                    primero = parseInt(num1, 10)
+                }
+
+                if (num2.includes(".")) {
+                    segundo = parseFloat(num2)
+                } else {
+                    segundo = parseInt(num2, 10)
+                }
+
+                resultado = operate(primero, operator, segundo)
+                display.textContent = resultado
+                num1 = resultado.toString()
+                num2 = ""
+
             } else {
                 operator = valor
             }
         }
 
         if (decimal) {
-            if(operator===null){
-                if(num1===""){
+            if (operator === null) {
+                if (num1 === "") {
                     display.textContent = (num1 = "0.")
-                }else if(num1.includes(".")){
+                } else if (num1.includes(".")) {
                     return
-                }else{
-                    display.textContent = (num1+=valor)
+                } else {
+                    display.textContent = (num1 += valor)
                 }
-            }else{
-                if(num2===""){
-                    display.textContent = (num2="0.")
-                }else if(num2.includes(".")){
+            } else {
+                if (num2 === "") {
+                    display.textContent = (num2 = "0.")
+                } else if (num2.includes(".")) {
                     return
-                }else{
-                    display.textContent = (num2+=valor)
+                } else {
+                    display.textContent = (num2 += valor)
                 }
             }
 
         }
 
         if (masmenos) {
-            if(operator === null){
-                if(num1 === ""){
-                    if(num1.includes("-")){
+            if (operator === null) {
+                if (num1 === "") {
+                    if (num1.includes("-")) {
                         display.textContent = (num1 = "")
-                    }else{
+                    } else {
                         display.textContent = (num1 = "-")
                     }
-                }else{
-                    if(num1.includes("-")){
+                } else {
+                    if (num1.includes("-")) {
                         display.textContent = (num1 = num1.slice(1)) //devuelve desde el indice 1 en adelante el 0 lo borra
-                    }else{
-                        display.textContent = (num1 = (num1+" -").split(" ").reverse().join(""))
+                    } else {
+                        display.textContent = (num1 = (num1 + " -").split(" ").reverse().join(""))
                     }
                 }
-            }else{
-                if(num2 === ""){
-                    if(num2.includes("-")){
+            } else {
+                if (num2 === "") {
+                    if (num2.includes("-")) {
                         display.textContent = (num2 = "")
-                    }else{
+                    } else {
                         display.textContent = (num2 = "-")
                     }
-                }else{
-                    if(num2.includes("-")){
+                } else {
+                    if (num2.includes("-")) {
                         display.textContent = (num2 = num2.slice(1))
-                    }else{
-                        display.textContent = (num2 = (num2+" -").split(" ").reverse().join(""))
+                    } else {
+                        display.textContent = (num2 = (num2 + " -").split(" ").reverse().join(""))
                     }
                 }
             }
         }
 
         if (igualdad) {
-            if(num2 === "0." || num2 === "" || operator == null || num2 == "-"){
+            if (num2 === "0." || num2 === "" || operator == null || num2 == "-") {
                 return
-            }else{
-                if(num1.includes(".")){
+            } else {
+                if (num1.includes(".")) {
                     primero = parseFloat(num1)
-                }else{
-                    primero = parseInt(num1,10)
+                } else {
+                    primero = parseInt(num1, 10)
                 }
 
-                if(num2.includes(".")){
+                if (num2.includes(".")) {
                     segundo = parseFloat(num2)
-                }else{
-                    segundo = parseInt(num2,10)
+                } else {
+                    segundo = parseInt(num2, 10)
                 }
 
-                resultado = operate(primero,operator,segundo)
+                resultado = operate(primero, operator, segundo)
                 display.textContent = resultado
-                num1=resultado.toString()
+                num1 = resultado.toString()
                 num2 = ""
             }
         }
 
-        if(borradototal){
+        if (borradototal) {
             display.textContent = ""
             num1 = ""
             num2 = ""
@@ -173,18 +191,18 @@ botones.forEach((p) => {
             resultado = null
         }
 
-        if(retroceso){
-            if(operator === null){
-                display.textContent = (num1 = num1.slice(-(num1.length),-1))
-            }else{
-                display.textContent = (num2 = num2.slice(-(num2.length),-1))
+        if (retroceso) {
+            if (operator === null) {
+                display.textContent = (num1 = num1.slice(-(num1.length), -1))
+            } else {
+                display.textContent = (num2 = num2.slice(-(num2.length), -1))
             }
         }
 
         console.log("a: ", num1)
         console.log("operator", operator)
         console.log("b: ", num2)
-        console.log("resultado: ",resultado)
+        console.log("resultado: ", resultado)
 
     })
 })
