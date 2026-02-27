@@ -97,10 +97,14 @@ botones.forEach((p) => {
                     segundo = parseInt(num2, 10)
                 }
 
-                resultado = operate(primero, operator, segundo)
-                display.textContent = resultado
-                num1 = resultado.toString()
-                num2 = ""
+                if (operator == "/" && segundo == 0) {
+                    return
+                } else {
+                    resultado = operate(primero, operator, segundo)
+                    display.textContent = resultado
+                    num1 = resultado.toString()
+                    num2 = ""
+                }
 
             } else {
                 operator = valor
@@ -176,10 +180,16 @@ botones.forEach((p) => {
                     segundo = parseInt(num2, 10)
                 }
 
-                resultado = operate(primero, operator, segundo)
-                display.textContent = resultado
-                num1 = resultado.toString()
-                num2 = ""
+                if (operator == "/" && segundo == 0) {
+                    return
+                } else {
+                    resultado = operate(primero, operator, segundo)
+                    display.textContent = resultado
+                    num1 = resultado.toString()
+                    num2 = ""
+                }
+
+
             }
         }
 
