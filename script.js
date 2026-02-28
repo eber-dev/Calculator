@@ -103,6 +103,9 @@ botones.forEach((p) => {
                     resultado = operate(primero, operator, segundo)
                     display.textContent = resultado
                     num1 = resultado.toString()
+                    if(valor !== operator){
+                        operator = valor
+                    }
                     num2 = ""
                 }
 
