@@ -208,7 +208,7 @@ botones.forEach((p) => {
             if (operator === null) {
                 display.textContent = (num1 = num1.slice(-(num1.length), -1))
             } else if (num1 != "" && resultado != null) {
-                display.textContent = (num1 = num1.slice(-(num1.length), -1))
+                return
             } else {
                 display.textContent = (num2 = num2.slice(-(num2.length), -1))
             }
@@ -339,7 +339,7 @@ document.addEventListener("keydown", (e) => {
         if (operator === null) {
             display.textContent = (num1 = num1.slice(-(num1.length), -1))
         } else if (num1 != "" && resultado != null) {
-            display.textContent = (num1 = num1.slice(-(num1.length), -1))
+            return
         } else {
             display.textContent = (num2 = num2.slice(-(num2.length), -1))
         }
