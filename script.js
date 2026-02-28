@@ -213,18 +213,11 @@ botones.forEach((p) => {
                 display.textContent = (num2 = num2.slice(-(num2.length), -1))
             }
         }
-
-        console.log("a: ", num1)
-        console.log("operator", operator)
-        console.log("b: ", num2)
-        console.log("resultado: ", resultado)
-
     })
 })
 
 document.addEventListener("keydown", (e) => {
     let tecla = e.key
-    console.log(tecla)
     let teclado_numerico = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"].includes(tecla)
     let teclado_operador = ["+", "-", "*", "/"].includes(tecla)
     let teclado_decimal = tecla === "."
