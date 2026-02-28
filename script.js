@@ -204,7 +204,7 @@ botones.forEach((p) => {
         if (retroceso) {
             if (operator === null) {
                 display.textContent = (num1 = num1.slice(-(num1.length), -1))
-            } else if(num1 != "" && resultado != null){
+            } else if (num1 != "" && resultado != null) {
                 display.textContent = (num1 = num1.slice(-(num1.length), -1))
             } else {
                 display.textContent = (num2 = num2.slice(-(num2.length), -1))
@@ -217,6 +217,128 @@ botones.forEach((p) => {
         console.log("resultado: ", resultado)
 
     })
+})
+
+document.addEventListener("keydown", (e) => {
+    let tecla = e.key
+    console.log(tecla)
+    let teclado_numerico = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"].includes(tecla)
+    let teclado_operador = ["+", "-", "*", "/"].includes(tecla)
+    let teclado_decimal = tecla === "."
+    let teclado_igualdad = tecla === "Enter"
+    let teclado_borradototal = tecla === "Delete"
+    let teclado_retroceso = tecla === "Backspace"
+
+    if (teclado_numerico) {
+        if (operator === null && num2 === "") {
+            display.textContent = (num1 += tecla)
+        } else if (operator !== null && num1 !== "") {
+            display.textContent = (num2 += tecla)
+        }
+    }
+
+    if (teclado_operador) {
+        if (num1 === "") {
+            console.log("Debe ingresar un numero primero")
+            return
+        } else if (num1 === "0." || num1 === "-") {
+            console.log("Formato Invalido")
+        } else if (num1 != "" && operator != null && num2) {
+            if (num1.includes(".")) {
+                primero = parseFloat(num1)
+            } else {
+                primero = parseInt(num1, 10)
+            }
+
+            if (num2.includes(".")) {
+                segundo = parseFloat(num2)
+            } else {
+                segundo = parseInt(num2, 10)
+            }
+
+            if (operator == "/" && segundo == 0) {
+                return
+            } else {
+                resultado = operate(primero, operator, segundo)
+                display.textContent = resultado
+                num1 = resultado.toString()
+                num2 = ""
+            }
+
+        } else {
+            operator = tecla
+        }
+
+    }
+
+    if (teclado_decimal) {
+        if (operator === null) {
+            if (num1 === "") {
+                display.textContent = (num1 = "0.")
+            } else if (num1.includes(".")) {
+                return
+            } else {
+                display.textContent = (num1 += tecla)
+            }
+        } else {
+            if (num2 === "") {
+                display.textContent = (num2 = "0.")
+            } else if (num2.includes(".")) {
+                return
+            } else {
+                display.textContent = (num2 += tecla)
+            }
+        }
+
+    }
+
+    if (teclado_igualdad) {
+        if (num2 === "0." || num2 === "" || operator == null || num2 == "-") {
+            return
+        } else {
+            if (num1.includes(".")) {
+                primero = parseFloat(num1)
+            } else {
+                primero = parseInt(num1, 10)
+            }
+
+            if (num2.includes(".")) {
+                segundo = parseFloat(num2)
+            } else {
+                segundo = parseInt(num2, 10)
+            }
+
+            if (operator == "/" && segundo == 0) {
+                return
+            } else {
+                resultado = operate(primero, operator, segundo)
+                display.textContent = resultado
+                num1 = resultado.toString()
+                num2 = ""
+            }
+        }
+
+
+    }
+
+    if (teclado_borradototal) {
+        display.textContent = ""
+        num1 = ""
+        num2 = ""
+        operator = null
+        resultado = null
+    }
+
+    if (teclado_retroceso) {
+        if (operator === null) {
+            display.textContent = (num1 = num1.slice(-(num1.length), -1))
+        } else if (num1 != "" && resultado != null) {
+            display.textContent = (num1 = num1.slice(-(num1.length), -1))
+        } else {
+            display.textContent = (num2 = num2.slice(-(num2.length), -1))
+        }
+
+    }
 })
 
 
