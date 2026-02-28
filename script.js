@@ -103,7 +103,7 @@ botones.forEach((p) => {
                     resultado = operate(primero, operator, segundo)
                     display.textContent = resultado
                     num1 = resultado.toString()
-                    if(valor !== operator){
+                    if (valor !== operator) {
                         operator = valor
                     }
                     num2 = ""
@@ -265,6 +265,9 @@ document.addEventListener("keydown", (e) => {
                 resultado = operate(primero, operator, segundo)
                 display.textContent = resultado
                 num1 = resultado.toString()
+                if (tecla !== operator) {
+                    operator = tecla
+                }
                 num2 = ""
             }
 
