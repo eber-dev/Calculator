@@ -7,9 +7,15 @@ body{
     height: 100vh;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     margin: 0;
     padding: 0;
     background-color:rgb(238, 184, 117)
+}
+
+.encabezado{
+    font-size: 32px;
+    margin-bottom: 25px;
 }
 
 .padre{
@@ -58,4 +64,10 @@ button{
 button:hover{
     background-color: rgb(231, 228, 228);
     cursor: pointer;
+}
+
+.pie{
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
 }
